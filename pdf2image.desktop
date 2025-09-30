@@ -15,11 +15,11 @@ Name=JPEG image
 Name[it]=Immagine JPEG
 Name[fr]=Image JPEG
 Icon=image-jpg
-Exec=filename=%f; convert -density 150 %f -quality 100 ${filename%.*}.jpg
+Exec=sh -c 'convert -density 150 "$1" -quality 100 "${1%.*}.jpg"' _ "%f"
 
 [Desktop Action PNG]
 Name=PNG image
 Name[it]=Immagine PNG
 Name[fr]=Image PNG
 Icon=image-png
-Exec=filename=%f; convert -density 150 %f -quality 100 ${filename%.*}.png
+Exec=sh -c 'convert -density 150 "$1" -background white -flatten -quality 100 "${1%.*}.png"' _ "%f"
